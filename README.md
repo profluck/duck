@@ -1,0 +1,1 @@
+New test project is "News"
