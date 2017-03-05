@@ -1,0 +1,101 @@
+$gray_title_color: #a39c9c;
+$light_grey: #f8f8f8;
+
+body {
+  font-family: "UbuntuRegular, Ubuntu";
+  font-size: 1.6em;
+}
+
+/* <begin> Bootstrap overrides */
+
+.form-control, .btn {
+  border-radius: 0;
+}
+.nav>li>a {
+  padding: 15px 10px;
+}
+/* <end> Bootstrap overrides */
+
+.cust-relative {
+  position: relative;
+}
+
+#header {
+  margin-top: 25px;
+  & .top-container {
+    margin: 10px 0;
+  }
+  & .site-name {
+    position: absolute;
+    margin: auto;
+    top: 33px;
+    left: 102px;
+    font-size: 1.9em;
+    text-shadow: 1px 0 5px #ccc;
+  }
+  & .search-input {
+    width:334px;
+  }
+}
+
+/* <begin> New item */
+#news-block {
+  & > h2 {
+    color: $gray_title_color;
+  }
+  & .news-item {
+    & > ul {
+      padding: 0;
+      margin: 0;
+      & > li {
+        list-style-type: none;
+        & .new-item-head {
+          position: relative;
+          & > h3 {
+            margin-top: 0;
+          }
+          & time {
+            position: absolute;
+            top: 5px;
+            right: 0;
+            color: #a59d9d;
+          }
+        }
+      }
+      & li.item-content {
+        & > p {
+          & > img {
+            margin: 0 8px 8px 0;
+            max-width: 80px;
+            float: left;
+          }
+          & > span {
+            color: #383737;
+          }
+        }
+      }
+    }
+    & .pan {
+      float: right;
+      & > a {
+        display: block;
+      }
+    }
+  }
+}
+/* <end> New item */
+
+#footer {
+  padding: 20px 0;
+  border-top: 2px solid #ccc;
+  background-color: rgba(248, 248, 248, 0.55);
+  & .notes {
+    margin-top: 5px;
+    & p.copyright {
+      color: $gray_title_color;
+    }
+    & > p.author {
+      word-wrap: break-word;
+    }
+  }
+}

@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="apple-touch-icon" sizes="57x57" href="app/assets/images/favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="app/assets/images/favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="app/assets/images/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="app/assets/images/favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="app/assets/images/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="app/assets/images/favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="app/assets/images/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="app/assets/images/favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="app/assets/images/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="app/assets/images/favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="app/assets/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="app/assets/images/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="app/assets/images/favicons/favicon-16x16.png">
+    <link rel="manifest" href="app/assets/images/favicons/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Duck's News</title>
+    <script type="text/javascript" src="vendors/moderniz/modernizr-custom.min.js?v=1"></script>
+    <link rel="stylesheet" href="vendors/bootstrap-v3.3.2-customer/css/bootstrap.min.css?v=1">
+    <link rel="stylesheet" href="vendors/font-awesome-4.7.0/css/font-awesome.min.css?v=1">
+    <link rel="stylesheet" href="app/assets/css/fonts.css?v=1">
+    <link rel="stylesheet" href="app/assets/css/common.css?v=1">
+    <script type="text/javascript" src="vendors/react-15.4.2/react.min.js?v=1"></script>
+    <script type="text/javascript" src="vendors/react-15.4.2/react-dom.min.js?v=1"></script>
+    <script type="text/javascript" src="vendors/react-15.4.2/babel-core/babel-core_5.8.24_browser.min.js?v=1"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-24">
+                <header id="header">
+                    <div class="row top-container">
+                        <div class="col-md-2 logo">
+                            <img src="/app/assets/images/duck-news-logo.png" width="72" alt="Site logotype">
+                        </div>
+                        <div class="col-md-22 site-name">
+                            Duck's news :)
+                        </div>
+                    </div>
+                    <nav class="navbar navbar-default" role="navigation">
+                        <div class="container-fluid">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                    <span class="sr-only">Menu</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand" href="/">Home</a>
+                            </div>
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                <ul class="nav navbar-nav">
+                                    <li class="active">
+                                        <a href="#" onclick="return false">
+                                            Quick search
+                                            <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <form class="navbar-form navbar-left" role="search">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control search-input" placeholder="Find me...">
+                                    </div>
+                                    <button type="submit" class="btn btn-default">
+                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                        GO
+                                    </button>
+                                </form>
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li><a href="#">Login</a></li>
+                                </ul>
+                            </div><!-- /.navbar-collapse -->
+                        </div><!-- /.container-fluid -->
+                    </nav>
+                </header>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-24">
+                <section id="news-block">
+                    <h2>Latest news</h2>
+                    <table class="table" cellpadding="0" cellspacing="0">
+                        <tbody>
+
+                        <!-- begin item news -->
+                        <tr>
+                            <td>
+                                <div class="news-item">
+                                    <ul>
+                                        <li>
+                                            <div class="new-item-head clearfix">
+                                                <h3>Welocome</h3>
+                                                <time datetime="2017-02-14">Posted at: 12.03.2016 at 12.33</time>
+                                            </div>
+                                        </li>
+                                        <li class="item-content clearfix">
+                                            <p>
+                                                <img src="/app/assets/images/news-imgs/1.jpg" width="80" alt="" />
+                                                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                                Eveniet minus nulla possimus quis sequi. Dolorum exercitationem fugit
+                                                iusto nobis provident quidem ratione voluptates.
+                                                Accusamus, magni maiores minima qui totam velit?
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                                Eveniet minus nulla possimus quis sequi. Dolorum exercitationem fugit
+                                                iusto nobis provident quidem ratione voluptates.
+                                                Accusamus, magni maiores minima qui totam velit?
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                                Eveniet minus nulla possimus quis sequi. Dolorum exercitationem fugit
+                                                iusto nobis provident quidem ratione voluptates.
+                                                Accusamus, magni maiores minima qui totam velit?
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                                Eveniet minus nulla possimus quis sequi. Dolorum exercitationem fugit
+                                                iusto nobis provident quidem ratione voluptates.
+                                                Accusamus, magni maiores minima qui totam velit?
+                                                </span>
+                                            </p>
+                                        </li>
+                                    </ul>
+                                    <div class="pan">
+                                        <a href="#">
+                                            &nbsp;Full item
+                                            <!--<i class="fa fa-caret-up" aria-hidden="true"></i>-->
+                                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- end item news -->
+
+                        <!-- begin item news -->
+                        <tr>
+                            <td>
+                                <div class="news-item">
+                                    <ul>
+                                        <li>
+                                            <div class="new-item-head clearfix">
+                                                <h3>My best friend</h3>
+                                                <time datetime="2017-02-14">Posted at: 12.03.2016 at 12.33</time>
+                                            </div>
+                                        </li>
+                                        <li class="item-content clearfix">
+                                            <p>
+                                                <img src="/app/assets/images/news-imgs/1.jpg" width="80" alt="" />
+                                                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                                Eveniet minus nulla possimus quis sequi. Dolorum exercitationem fugit
+                                                iusto nobis provident quidem ratione voluptates.
+                                                Accusamus, magni maiores minima qui totam velit?
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                                Eveniet minus nulla possimus quis sequi. Dolorum exercitationem fugit
+                                                iusto nobis provident quidem ratione voluptates.
+                                                Accusamus, magni maiores minima qui totam velit?
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                                Eveniet minus nulla possimus quis sequi. Dolorum exercitationem fugit
+                                                iusto nobis provident quidem ratione voluptates.
+                                                Accusamus, magni maiores minima qui totam velit?
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                                Eveniet minus nulla possimus quis sequi. Dolorum exercitationem fugit
+                                                iusto nobis provident quidem ratione voluptates.
+                                                Accusamus, magni maiores minima qui totam velit?
+                                                </span>
+                                            </p>
+                                        </li>
+                                    </ul>
+                                    <div class="pan">
+                                        <a href="#">
+                                            &nbsp;Full item
+                                            <!--<i class="fa fa-caret-up" aria-hidden="true"></i>-->
+                                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- end item news -->
+
+                        <!-- begin item news -->
+                        <tr>
+                            <td>
+                                <div class="news-item">
+                                    <ul>
+                                        <li>
+                                            <div class="new-item-head clearfix">
+                                                <h3>My best summer</h3>
+                                                <time datetime="2017-02-14">Posted at: 12.03.2016 at 12.33</time>
+                                            </div>
+                                        </li>
+                                        <li class="item-content clearfix">
+                                            <p>
+                                                <img src="/app/assets/images/news-imgs/1.jpg" width="80" alt="" />
+                                                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                                Eveniet minus nulla possimus quis sequi. Dolorum exercitationem fugit
+                                                iusto nobis provident quidem ratione voluptates.
+                                                Accusamus, magni maiores minima qui totam velit?
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                                Eveniet minus nulla possimus quis sequi. Dolorum exercitationem fugit
+                                                iusto nobis provident quidem ratione voluptates.
+                                                Accusamus, magni maiores minima qui totam velit?
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                                Eveniet minus nulla possimus quis sequi. Dolorum exercitationem fugit
+                                                iusto nobis provident quidem ratione voluptates.
+                                                Accusamus, magni maiores minima qui totam velit?
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                                Eveniet minus nulla possimus quis sequi. Dolorum exercitationem fugit
+                                                iusto nobis provident quidem ratione voluptates.
+                                                Accusamus, magni maiores minima qui totam velit?
+                                                </span>
+                                            </p>
+                                        </li>
+                                    </ul>
+                                    <div class="pan">
+                                        <a href="#">
+                                            &nbsp;Full item
+                                            <!--<i class="fa fa-caret-up" aria-hidden="true"></i>-->
+                                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- end item news -->
+
+                        </tbody>
+
+                        <!-- begin pagination -->
+                        <tfoot>
+                            <tr>
+                                <td>
+                                    <div class="row">
+                                        <div class="col-md-24 text-center">
+                                            <div class="pagination">
+                                                <ul class="pagination">
+                                                    <li><a href="#">&laquo;</a></li>
+                                                    <li><a href="#">1</a></li>
+                                                    <li><a href="#">2</a></li>
+                                                    <li><a href="#">3</a></li>
+                                                    <li><a href="#">4</a></li>
+                                                    <li><a href="#">5</a></li>
+                                                    <li><a href="#">&raquo;</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                        <!-- end pagination -->
+
+                    </table>
+                </section>
+            </div>
+        </div>
+        <footer id="footer">
+        <div class="row">
+            <div class="col-md-24">
+                <div class="col-md-5 col-sm-8 col-xs-10">
+                    <div class="left-foot-content">
+                        <img src="/app/assets/images/footer-duck(x1)-optimized.png" class="img-responsive" width="180" alt="Footer duck image">
+                    </div>
+                </div>
+                <div class="col-md-19 col-sm-16 col-xs-14 cust-relative">
+                   <div class="notes text-center">
+                       <p class="copyright">
+                           Copyright <i class="fa fa-copyright" aria-hidden="true"></i> All Rights Reserved
+                       </p>
+                       <p class="author">
+                           Created by Arthr Danko
+                           <a target="_blank" href="https://github.com/profluck/news-test-project">https://github.com/profluck/news-test-project</a>
+                       </p>
+                   </div>
+                </div>
+            </div>
+        </div>
+        </footer>
+    </div>
+
+    <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="vendors/smooth-scroll/plugins-scroll.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // initialization of plugin smooth scroll
+            try{$.browserSelector();if($("html").hasClass("chrome")){$.smoothScroll();}}catch(err) {}
+        });
+    </script>
+</body>
+</html>
