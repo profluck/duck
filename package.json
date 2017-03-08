@@ -1,0 +1,33 @@
+{
+  "name": "arthur",
+  "version": "1.0.0",
+  "description": "Test project is \"dack news\"",
+  "main": "index.js",
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.4.0",
+    "babel-preset-react": "^6.23.0",
+    "react-hot-loader": "^1.3.1",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "webpack-dev-server --content-base ./public --inline --hot --port 8090 --host localhost"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/profluck/news-test-project.git"
+  },
+  "author": "Danko Arthur",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/profluck/news-test-project/issues"
+  },
+  "homepage": "https://github.com/profluck/news-test-project#readme"
+}
