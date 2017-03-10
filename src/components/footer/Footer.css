@@ -1,0 +1,14 @@
+#footer {
+  padding: 20px 0;
+  border-top: 2px solid #ccc;
+  background-color: rgba(248, 248, 248, 0.55);
+}
+#footer .notes {
+  margin-top: 5px;
+}
+#footer .notes p.copyright {
+  color: #a39c9c;
+}
+#footer .notes > p.author {
+  word-wrap: break-word;
+}

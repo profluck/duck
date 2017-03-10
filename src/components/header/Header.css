@@ -1,0 +1,17 @@
+#header {
+  margin-top: 25px;
+}
+#header .top-container {
+  margin: 10px 0;
+}
+#header .site-name {
+  position: absolute;
+  margin: auto;
+  top: 33px;
+  left: 102px;
+  font-size: 1.9em;
+  text-shadow: 1px 0 5px #ccc;
+}
+#header .search-input {
+  width: 334px;
+}

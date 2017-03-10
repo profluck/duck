@@ -1,0 +1,46 @@
+@import '../styles/color-variables';
+
+#news-block {
+  & > h2 {
+    color: @gray_title_color;
+  }
+  & .news-item {
+    & > ul {
+      padding: 0;
+      margin: 0;
+      & > li {
+        list-style-type: none;
+        & .new-item-head {
+          position: relative;
+          & > h3 {
+            margin-top: 0;
+          }
+          & time {
+            position: absolute;
+            top: 5px;
+            right: 0;
+            color: #a59d9d;
+          }
+        }
+      }
+      & li.item-content {
+        & > p {
+          & > img {
+            margin: 0 8px 8px 0;
+            max-width: 80px;
+            float: left;
+          }
+          & > span {
+            color: #383737;
+          }
+        }
+      }
+    }
+    & .pan {
+      float: right;
+      & > a {
+        display: block;
+      }
+    }
+  }
+}
