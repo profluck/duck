@@ -1,12 +1,10 @@
 import React from 'react';
 import { render } from 'react-dom';
 
+//import { Router, Route, hashHistory } from 'react-router';
+import Application from './components/Application.jsx';
+
 render(
-    <div>
-        <h2>Welcome to the main page!</h2>
-        <br/>
-        How are you?
-        <br/>
-    </div>,
+    <Application/>,
     document.getElementById("app-root")
 );
