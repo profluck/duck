@@ -1,0 +1,15 @@
+body {
+  font-size: 1.6em;
+}
+/* <begin> Bootstrap overrides */
+.form-control,
+.btn {
+  border-radius: 0;
+}
+.nav > li > a {
+  padding: 15px 10px;
+}
+/* <end> Bootstrap overrides */
+.cust-relative {
+  position: relative;
+}
