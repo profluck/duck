@@ -1,4 +1,5 @@
 import React from 'react';
+import Pagination from 'react-js-pagination'
 import Header from './header/Header.jsx';
 import Footer from './footer/Footer.jsx';
 import NewsList from './NewsList.jsx';
@@ -15,10 +16,20 @@ class Application extends React.Component {
 
         this.state = getState();
         this.state['search_string'] =  '';
+        this.state['pagination_states'] = {
+            activePage: 1
+        };
 
         this.handleSearchUpdate = this.handleSearchUpdate.bind(this);
+        this.handlePageChange = this.handlePageChange.bind(this);
     }
 
+    handlePageChange(pageNumber) {
+        console.log(`active page is ${pageNumber}`);
+        this.setState({pagination_states: {
+            activePage: pageNumber
+        }});
+    }
 
     componentWillMount(){
         this.__fetchDataNews();
@@ -57,6 +68,17 @@ class Application extends React.Component {
                 </div>
                 <div className="row">
                     <NewsList listItems={displayedItems} />
+                </div>
+                <div className="row">
+                    <div className="text-center">
+                        <Pagination
+                            activePage={this.state.pagination_states.activePage}
+                            itemsCountPerPage={10}
+                            totalItemsCount={450}
+                            pageRangeDisplayed={5}
+                            onChange={this.handlePageChange}
+                        />
+                    </div>
                 </div>
                 <div className="row">
                     <Footer/>
