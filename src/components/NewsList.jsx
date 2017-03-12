@@ -1,147 +1,79 @@
 import React from 'react';
-
 import './NewsList.css';
+import { emit } from '../dispatcher/ApplicationDispatcher';
+import AppAction from '../constants/ApplicationConstants';
+import { getState, addChangeListener } from '../stores/StoreListNews';
 
 let NewsList = class NewsList extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            items: []
+        };
+    }
+
+    componentWillMount(){
+        this.__fetchDataNews();
+    }
+
+    componentDidMount() {
+        addChangeListener(this.__update.bind(this));
+    }
+
+    __update() {
+        this.setState({items: getState().items});
+    }
+
+    __fetchDataNews() {
+        emit(AppAction.LOAD_NEWS);
+    }
+
     render () {
+
+        console.log("RENDER",  this.state.items);
+
         return (
             <div className="col-md-24">
                 <section id="news-block">
                     <h2>Latest news</h2>
                     <table className="table" cellPadding={0} cellSpacing={0}>
                         <tbody>
+                        {
+                            this.state.items.map( function(item, i) {
 
-                        <tr>
-                            <td>
-                                <div className="news-item">
-                                    <ul>
-                                        <li>
-                                            <div className="new-item-head clearfix">
-                                                <h3>Welocome my dear friend</h3>
-                                                <time>Posted at: 12.03.2016 at 12.33</time>
+                                return (
+                                    <tr key={item.id}>
+                                        <td>
+                                            <div className="news-item">
+                                                <ul>
+                                                    <li>
+                                                        <div className="new-item-head clearfix">
+                                                            <h3> {item.title} </h3>
+                                                            <time>Posted at: {item.post_date} </time>
+                                                        </div>
+                                                    </li>
+                                                    <li className="item-content clearfix">
+                                                        <p>
+                                                            <img src={item.image} width="80" alt={item.title} />
+                                                            <span> {item.text} </span>
+                                                        </p>
+                                                    </li>
+                                                </ul>
+                                                <div className="pan">
+                                                    <a href="#">
+                                                        &nbsp;Full item
+                                                        <i className="fa fa-caret-down" aria-hidden="true" />
+                                                    </a>
+                                                </div>
                                             </div>
-                                        </li>
-                                        <li className="item-content clearfix">
-                                            <p>
-                                                <img src={require('../styles/images/example-imgs/1.jpg')} width="80" alt="" />
-                                                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                                Eveniet minus nulla possimus quis sequi. Dolorum exercitationem fugit
-                                                iusto nobis provident quidem ratione voluptates.
-                                                Accusamus, magni maiores minima qui totam velit?
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                                Eveniet minus nulla possimus quis sequi. Dolorum exercitationem fugit
-                                                iusto nobis provident quidem ratione voluptates.
-                                                Accusamus, magni maiores minima qui totam velit?
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                                Eveniet minus nulla possimus quis sequi. Dolorum exercitationem fugit
-                                                iusto nobis provident quidem ratione voluptates.
-                                                Accusamus, magni maiores minima qui totam velit?
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                                Eveniet minus nulla possimus quis sequi. Dolorum exercitationem fugit
-                                                iusto nobis provident quidem ratione voluptates.
-                                                Accusamus, magni maiores minima qui totam velit?
-                                                </span>
-                                            </p>
-                                        </li>
-                                    </ul>
-                                    <div className="pan">
-                                        <a href="#">
-                                            &nbsp;Full item
-                                            <i className="fa fa-caret-down" aria-hidden="true" />
-                                        </a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <div className="news-item">
-                                    <ul>
-                                        <li>
-                                            <div className="new-item-head clearfix">
-                                                <h3>My best friend</h3>
-                                                <time>Posted at: 12.03.2016 at 12.33</time>
-                                            </div>
-                                        </li>
-                                        <li className="item-content clearfix">
-                                            <p>
-                                                <img src={require('../styles/images/example-imgs/2.jpg')} width="80" alt="" />
-                                                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                                Eveniet minus nulla possimus quis sequi. Dolorum exercitationem fugit
-                                                iusto nobis provident quidem ratione voluptates.
-                                                Accusamus, magni maiores minima qui totam velit?
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                                Eveniet minus nulla possimus quis sequi. Dolorum exercitationem fugit
-                                                iusto nobis provident quidem ratione voluptates.
-                                                Accusamus, magni maiores minima qui totam velit?
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                                Eveniet minus nulla possimus quis sequi. Dolorum exercitationem fugit
-                                                iusto nobis provident quidem ratione voluptates.
-                                                Accusamus, magni maiores minima qui totam velit?
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                                Eveniet minus nulla possimus quis sequi. Dolorum exercitationem fugit
-                                                iusto nobis provident quidem ratione voluptates.
-                                                Accusamus, magni maiores minima qui totam velit?
-                                                </span>
-                                            </p>
-                                        </li>
-                                    </ul>
-                                    <div className="pan">
-                                        <a href="#">
-                                            &nbsp;Full item
-                                            <i className="fa fa-caret-down" aria-hidden="true"/>
-                                        </a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <div className="news-item">
-                                    <ul>
-                                        <li>
-                                            <div className="new-item-head clearfix">
-                                                <h3>My best summer</h3>
-                                                <time>Posted at: 12.03.2016 at 12.33</time>
-                                            </div>
-                                        </li>
-                                        <li className="item-content clearfix">
-                                            <p>
-                                                <img src={require('../styles/images/example-imgs/3.jpg')} width="80" alt="" />
-                                                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                                Eveniet minus nulla possimus quis sequi. Dolorum exercitationem fugit
-                                                iusto nobis provident quidem ratione voluptates.
-                                                Accusamus, magni maiores minima qui totam velit?
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                                Eveniet minus nulla possimus quis sequi. Dolorum exercitationem fugit
-                                                iusto nobis provident quidem ratione voluptates.
-                                                Accusamus, magni maiores minima qui totam velit?
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                                Eveniet minus nulla possimus quis sequi. Dolorum exercitationem fugit
-                                                iusto nobis provident quidem ratione voluptates.
-                                                Accusamus, magni maiores minima qui totam velit?
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                                Eveniet minus nulla possimus quis sequi. Dolorum exercitationem fugit
-                                                iusto nobis provident quidem ratione voluptates.
-                                                Accusamus, magni maiores minima qui totam velit?
-                                                </span>
-                                            </p>
-                                        </li>
-                                    </ul>
-                                    <div className="pan">
-                                        <a href="#">
-                                            &nbsp;Full item
-                                            <i className="fa fa-caret-down" aria-hidden="true"/>
-                                        </a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-
+                                        </td>
+                                    </tr>
+                                );
+                            })
+                        }
                         </tbody>
-
                         <tfoot>
                         <tr>
                             <td>
@@ -169,6 +101,7 @@ let NewsList = class NewsList extends React.Component {
             </div>
         )
     }
+
 };
 
 export default NewsList;
