@@ -1,38 +1,50 @@
 import React from 'react';
 import './NewsList.css';
-import { emit } from '../dispatcher/ApplicationDispatcher';
-import AppAction from '../constants/ApplicationConstants';
-import { getState, addChangeListener } from '../stores/StoreListNews';
 
-let NewsList = class NewsList extends React.Component {
+class NewsList extends React.Component {
 
-    constructor(props) {
-        super(props);
+    render() {
 
-        this.state = {
-            items: []
-        };
-    }
+        console.log("RENDER LIST NEWS");
 
-    componentWillMount(){
-        this.__fetchDataNews();
-    }
+        let list = '';
 
-    componentDidMount() {
-        addChangeListener(this.__update.bind(this));
-    }
+        if(this.props.listItems.length > 0) {
+            list = this.props.listItems.map( function(item, i) {
 
-    __update() {
-        this.setState({items: getState().items});
-    }
-
-    __fetchDataNews() {
-        emit(AppAction.LOAD_NEWS);
-    }
-
-    render () {
-
-        console.log("RENDER",  this.state.items);
+                return (
+                    <tr key={item.id}>
+                        <td>
+                            <div className="news-item">
+                                <ul>
+                                    <li>
+                                        <div className="new-item-head clearfix">
+                                            <h3> {item.title} </h3>
+                                            <time>Posted at: {item.post_date} </time>
+                                        </div>
+                                    </li>
+                                    <li className="item-content clearfix">
+                                        <p>
+                                            <img src={item.image} width="80" alt={item.title} />
+                                            <span> {item.text} </span>
+                                        </p>
+                                    </li>
+                                </ul>
+                                <div className="pan">
+                                    <a href="#">
+                                        Full item &nbsp;
+                                        <i className="fa fa-caret-down" aria-hidden="true"/>
+                                    </a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                );
+            });
+        }
+        else {
+            list = <tr><td>Nothing is not found!</td></tr>;
+        }
 
         return (
             <div className="col-md-24">
@@ -40,39 +52,7 @@ let NewsList = class NewsList extends React.Component {
                     <h2>Latest news</h2>
                     <table className="table" cellPadding={0} cellSpacing={0}>
                         <tbody>
-                        {
-                            this.state.items.map( function(item, i) {
-
-                                return (
-                                    <tr key={item.id}>
-                                        <td>
-                                            <div className="news-item">
-                                                <ul>
-                                                    <li>
-                                                        <div className="new-item-head clearfix">
-                                                            <h3> {item.title} </h3>
-                                                            <time>Posted at: {item.post_date} </time>
-                                                        </div>
-                                                    </li>
-                                                    <li className="item-content clearfix">
-                                                        <p>
-                                                            <img src={item.image} width="80" alt={item.title} />
-                                                            <span> {item.text} </span>
-                                                        </p>
-                                                    </li>
-                                                </ul>
-                                                <div className="pan">
-                                                    <a href="#">
-                                                        &nbsp;Full item
-                                                        <i className="fa fa-caret-down" aria-hidden="true" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                );
-                            })
-                        }
+                        { list }
                         </tbody>
                         <tfoot>
                         <tr>
@@ -101,7 +81,6 @@ let NewsList = class NewsList extends React.Component {
             </div>
         )
     }
-
-};
+}
 
 export default NewsList;

@@ -1,9 +1,13 @@
-
 import { listen, emit } from '../dispatcher/ApplicationDispatcher';
 import AppAction from '../constants/ApplicationConstants';
 import '../api/APINews';
 
-    let state = {};
+    let state = {
+        initialData: {
+            items: [],
+            message: []
+        }
+    };
     
     const listeners = [];
     
@@ -19,23 +23,15 @@ import '../api/APINews';
         listeners.forEach((fn) => fn());
     }
 
-    // Load news listeners
-
     listen(AppAction.LOAD_NEWS, () => {
         emit(AppAction.API_LOAD_NEWS);
     });
 
     listen(AppAction.API_RESPONSE_DATA, (responseApiMessage) => {
 
-        state.items = JSON.parse(responseApiMessage.data);
-        state.message = responseApiMessage.request_statusText;
+        state.initialData.items = JSON.parse(responseApiMessage.data);
+        state.initialData.message = responseApiMessage.request_statusText;
 
         notify();
 
-    });
-
-    // Search news listeners
-
-    listen(AppAction.SEARCH_ME, (search_str) => {
-        console.log(search_str);
     });

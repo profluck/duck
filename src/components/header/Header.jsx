@@ -1,8 +1,22 @@
 import React from 'react';
-
 import './Header.css';
 
-let Header = class Header extends React.Component {
+class Header extends React.Component {
+
+    constructor(props){
+        super(props);
+
+        this.handlerSearch = this.handlerSearch.bind(this);
+    }
+
+    handlerSearch(event) {
+
+        const search_val = event.target.value.toLowerCase().trim();
+
+        this.props.searchMe(search_val);
+
+    }
+
     render () {
         return (
             <div className="col-md-24">
@@ -30,21 +44,22 @@ let Header = class Header extends React.Component {
                                 <ul className="nav navbar-nav">
                                     <li className="active">
                                         <a href="#">
-                                            Quick search <i className="fa fa-hand-o-right"/>
+                                            Quick search <i className="fa fa-hand-o-right" aria-hidden="true"/>
                                         </a>
                                     </li>
                                 </ul>
-                                <form className="navbar-form navbar-left" role="search">
+                                <div className="navbar-form navbar-left" role="search">
                                     <div className="form-group">
-                                        <input type="text" className="form-control search-input" placeholder="Find me..." />
+                                        <input type="text" className="form-control search-input" placeholder="Find me..." onChange={this.handlerSearch} />
                                     </div>
-                                    <button type="submit" className="btn btn-default">
-                                        <i className="fa fa-search"/>
-                                        GO
-                                    </button>
-                                </form>
+                                </div>
                                 <ul className="nav navbar-nav navbar-right">
-                                    <li><a href="#">Login</a></li>
+                                    <li>
+                                        <a href="#">
+                                            Sign in &nbsp;
+                                            <i className="fa fa-sign-in" aria-hidden="true"/>
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -53,6 +68,6 @@ let Header = class Header extends React.Component {
             </div>
         )
     }
-};
+}
 
 export default Header;
