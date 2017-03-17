@@ -48,7 +48,10 @@ class Application extends React.Component {
     }
 
     handleSearchUpdate(searchValue){
-        this.setState({search_string: searchValue});
+        // reset pagination position
+        this.setState({ pagination_states: { activePage: 1 } });
+        // set new search state
+        this.setState({ search_string: searchValue });
     }
 
 
@@ -61,21 +64,71 @@ class Application extends React.Component {
             return (match !== -1);
         }.bind(this));
 
+        // Default sets
+        const maxCountPageItems = 2;
+        const maxCountItems = displayedItems.length;
+
+        function arrayExploder(arr, chunk) {
+            let i, j, tmp = [];
+            for (i = 0, j = arr.length; i < j; i += chunk) {
+                tmp.push(arr.slice(i, i + chunk));
+            }
+            return tmp;
+        }
+
+        // exploded array on chunks
+        var arrayChunks = arrayExploder(displayedItems, maxCountPageItems);
+
+        // length of chunks
+        const pagerLength = arrayChunks.length;
+
+        // current page number
+        var currentPage = this.state.pagination_states.activePage;
+
+        // boolean flag: show or hide pagination panel
+        var hideDisabledPagination = false;
+
+        if(currentPage == 1){
+            var beginCountItems = displayedItems.splice(0, maxCountPageItems);
+        }
+        else {
+            if(currentPage <= arrayChunks.length) {
+                beginCountItems = arrayChunks[currentPage-1];
+            }
+            else {
+                console.log("Page is not exists!");
+                hideDisabledPagination = true;
+            }
+        }
+
+        // check if array items is empty then hide pagination panel
+        if(beginCountItems.length == 0) {
+            hideDisabledPagination = true;
+        }
+
+        //console.log(arrayChunks[0]);
+        //console.log(arrayChunks[1]);
+        //console.log(pagerLength);
+        //console.log('Displayed items', maxCountItems);
+        //console.log(beginCountItems);
+
+
         return (
             <div className="container">
                 <div className="row">
                     <Header searchMe={this.handleSearchUpdate} />
                 </div>
                 <div className="row">
-                    <NewsList listItems={displayedItems} />
+                    <NewsList listItems={beginCountItems} />
                 </div>
                 <div className="row">
                     <div className="text-center">
                         <Pagination
                             activePage={this.state.pagination_states.activePage}
-                            itemsCountPerPage={10}
-                            totalItemsCount={450}
-                            pageRangeDisplayed={5}
+                                itemsCountPerPage={maxCountPageItems}
+                            totalItemsCount={maxCountItems}
+                            pageRangeDisplayed={pagerLength}
+                            hideDisabled={hideDisabledPagination}
                             onChange={this.handlePageChange}
                         />
                     </div>

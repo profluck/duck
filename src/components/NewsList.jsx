@@ -5,7 +5,7 @@ class NewsList extends React.Component {
 
     render() {
 
-        console.log("RENDER LIST NEWS");
+        //console.log("RENDER LIST NEWS");
 
         let list = '';
 
@@ -43,7 +43,7 @@ class NewsList extends React.Component {
             });
         }
         else {
-            list = <tr><td>Nothing is not found!</td></tr>;
+            list = <tr><td className="not-found"><b>Sorry, but nothing is not found!</b></td></tr>;
         }
 
         return (
