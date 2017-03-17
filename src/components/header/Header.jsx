@@ -55,10 +55,10 @@ class Header extends React.Component {
                                 </div>
                                 <ul className="nav navbar-nav navbar-right">
                                     <li>
-                                        <a href="#">
+                                        {/*<a href="#">
                                             Sign in &nbsp;
                                             <i className="fa fa-sign-in" aria-hidden="true"/>
-                                        </a>
+                                        </a>*/}
                                     </li>
                                 </ul>
                             </div>

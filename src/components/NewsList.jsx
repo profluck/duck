@@ -30,12 +30,12 @@ class NewsList extends React.Component {
                                         </p>
                                     </li>
                                 </ul>
-                                <div className="pan">
+                                {/*<div className="pan">
                                     <a href="#">
                                         Full item &nbsp;
                                         <i className="fa fa-caret-down" aria-hidden="true"/>
                                     </a>
-                                </div>
+                                </div>*/}
                             </div>
                         </td>
                     </tr>

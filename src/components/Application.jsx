@@ -57,7 +57,7 @@ class Application extends React.Component {
 
     render() {
 
-        console.log("RENDER APPLICATION");
+        //console.log("RENDER APPLICATION");
 
         let displayedItems = this.state.initialData.items.filter(function(item) {
             let match = item.title.toLowerCase().trim().indexOf(this.state.search_string);
@@ -65,7 +65,7 @@ class Application extends React.Component {
         }.bind(this));
 
         // Default sets
-        const maxCountPageItems = 2;
+        const maxCountPageItems = 3;
         const maxCountItems = displayedItems.length;
 
         function arrayExploder(arr, chunk) {
@@ -105,13 +105,6 @@ class Application extends React.Component {
         if(beginCountItems.length == 0) {
             hideDisabledPagination = true;
         }
-
-        //console.log(arrayChunks[0]);
-        //console.log(arrayChunks[1]);
-        //console.log(pagerLength);
-        //console.log('Displayed items', maxCountItems);
-        //console.log(beginCountItems);
-
 
         return (
             <div className="container">
