@@ -1,7 +1,7 @@
 import { listen, emit } from '../dispatcher/ApplicationDispatcher';
 import AppAction from '../constants/ApplicationConstants';
 
-const REMOTE_API_LINK = 'http://weblock.cloudzend.com/api';
+const REMOTE_API_LINK = 'https://weblock.cloudzend.com/api';
 
     listen(AppAction.API_LOAD_NEWS, () => {
 
